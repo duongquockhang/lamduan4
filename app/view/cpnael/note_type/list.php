@@ -16,25 +16,33 @@
                     <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Tiêu đề</th>
-                        <th>Phân loại</th>
+                        <th>Name</th>
+                        <th>Description</th>
                         <th>Quản lý</th>
                         
                        
                     </tr>
                     </thead>
                     <tbody>
-                   
+                    <?php
+                        $i=0;
+
+                        foreach ($note_type as $key => $value){
+                         $i++;
+                     ?>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><?php echo $i?></td>
+                        <td><?php echo $value['name']?></td>
+                        <td><?php echo $value['description']?></td>
                         
-                        <td><a href=""
+                        <td><a href="<?php echo BASE_URL ?>/?url=note_type/delete_note_type/<?php echo $value['id']?>"
                                class="btn btn-danger btn-sm" onclick="return confirm('Bạn chắc chắn muốn xoá?')">Delete</a>
-                            <a href=""
+                            <a href="<?php echo BASE_URL ?>/?url=note_type/edit_note_type/<?php echo $value['id']?>"
                                class="btn btn-primary btn-sm">Update</a></td>
                      
+                               <?php
+     } 
+    ?>
                     </tbody>
                 </table>
             </div>
